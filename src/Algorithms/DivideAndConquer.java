@@ -5,7 +5,6 @@ public class DivideAndConquer extends MedianFinder{
     public DivideAndConquer(int [] nums) {
         super(nums);
     }
-
     private int findKthElement(int [] nums, int start, int end, int k) {
         int pivot = partition(nums, start, end);
         if(pivot == k) return nums[pivot];
