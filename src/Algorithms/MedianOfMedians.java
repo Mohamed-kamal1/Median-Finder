@@ -11,7 +11,8 @@ public class MedianOfMedians extends MedianFinder {
         int size = end - start + 1;
         // base case
         if(size <= 5) {
-            return findMedian(nums, start, end);
+            Arrays.sort(nums, start, end + 1);
+            return nums[start + k];
         }
         // divide the array into groups of 5 and find the median of each group
         int numOFMedians = (size + 4) / 5; // +4 to handle the case when size is not divisible by 5
@@ -20,7 +21,7 @@ public class MedianOfMedians extends MedianFinder {
             medians[i] = findMedian(nums, start + i * 5, start + i * 5 + 4);
         }
         if(size % 5 != 0) {
-            medians[size / 5] = findMedian(nums, start + size / 5 * 5, end);
+            medians[size / 5] = findMedian(nums, start + size - size % 5 , end);
         }
         // find the median of medians
         int medianOfMedians = findKthElement(medians, 0, numOFMedians - 1, (numOFMedians -1)/ 2);
@@ -28,7 +29,7 @@ public class MedianOfMedians extends MedianFinder {
         int pivot = partition(nums, start, end, medianOfMedians);
         if(pivot - start == k) return nums[pivot];
         if(pivot - start > k) return findKthElement(nums, start, pivot - 1, k);
-        return findKthElement(nums, pivot + 1, end, k - pivot + start - 1);
+        return findKthElement(nums, pivot + 1, end, k - (pivot - start + 1));
     }
 
     private int findMedian(int[] nums, int start, int end) {
