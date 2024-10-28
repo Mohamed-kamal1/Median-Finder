@@ -1,5 +1,7 @@
 package Algorithms;
 
+import java.util.Arrays;
+
 public class Naive extends MedianFinder {
     public Naive(int[] nums) {
         super(nums);
@@ -7,7 +9,8 @@ public class Naive extends MedianFinder {
 
     @Override
     public int findMedian() {
-        return 0;
+        Arrays.sort(nums);
+        return nums[(nums.length - 1) / 2];
     }
 
 }
