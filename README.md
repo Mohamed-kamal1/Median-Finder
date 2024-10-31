@@ -54,4 +54,25 @@
 |  10000000  |  5   | 787.8256  |      65.3731       |     434.5069      |
 |  AVERAGE   |      | 833.90946 |      99.01778      |     428.93568     |
 
+median of medians expected to be faster than divide and conquer, but time to get pivot is high and made the algorithm slower than divide and conquer.
+hoverer, divide and conquer will be slow if the array is already sorted or semi-sorted.
+naive algorithm is the fastest if array size is small, but it is the slowest if array size is large.
+## Conclusion
+Median of medians is designed to  provide a worst-case linear time complexity, making it more
+predictable and reliable for finding the median in an array.  
+The randomized divide-and-conquer is efficient on average but has a small probability of hitting worst-case behavior due to randomization.  
+Naive method is not recommended for large arrays because of its quadratic worst-case time complexity.
+
+
+
+
+
+
+
+
+
+
+
+
+
           
